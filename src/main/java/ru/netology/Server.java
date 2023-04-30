@@ -1,6 +1,9 @@
 package ru.netology;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.univocity.parsers.tsv.TsvParserSettings;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -29,19 +32,20 @@ public class Server {
                     out.println("Сервер запущен");
                     String jsonString = "";
 
-
-
-
                     while (!"q".equals(jsonString)) {
                         jsonString = in.readLine();
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        BuyNote buyNote = objectMapper.readValue(jsonString, BuyNote.class);
-                        addTotalSumInfo(buyNote);
+                        if (!"q".equals(jsonString)){
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            BuyNote buyNote = objectMapper.readValue(jsonString, BuyNote.class);
+                            addTotalSumInfo(buyNote);
+                        }
+
                     }
-                    out.println(categoriesTotalSum.entrySet().size());
                     Map.Entry<String, Integer> maxEntry = categoriesTotalSum.entrySet().stream()
                             .max(Comparator.comparing(Map.Entry::getValue)).orElse(null);
-                    out.println(maxEntry.toString());
+                    JSONObject mainObject = getJsonObject(maxEntry);
+                    out.println(mainObject.toString());
+
 
 
                 }
@@ -52,6 +56,20 @@ public class Server {
             e.printStackTrace();
         }
 
+    }
+
+    private static JSONObject getJsonObject(Map.Entry<String, Integer> maxEntry) {
+        JSONObject maxCategory = new JSONObject();
+
+        maxCategory.put("category", maxEntry.getKey());
+        maxCategory.put("sum", maxEntry.getValue());
+
+        JSONArray maxMain = new JSONArray();
+        maxMain.put(maxCategory);
+
+        JSONObject mainObject = new JSONObject();
+        mainObject.put("maxCategory", maxMain);
+        return mainObject;
     }
 
     private static void addTotalSumInfo(BuyNote buyNote) {
@@ -67,6 +85,7 @@ public class Server {
         } else {
             categoriesTotalSum.put(categ,buyNote.getSum());
         }
+        categoriesTotalSum.entrySet().stream().forEach(System.out::println);
     }
 
     private static HashMap<String, ArrayList<String>> tsvToHashMap() {
