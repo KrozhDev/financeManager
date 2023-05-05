@@ -9,7 +9,6 @@ import java.util.*;
 
 public class Calculations {
 
-    //todo сюда переместить все расчеты с сервера
     protected static HashMap<String, Integer> categoriesTotalSum = new HashMap<>();
     protected static final HashMap<String, ArrayList<String>> categories = tsvToHashMap();
 

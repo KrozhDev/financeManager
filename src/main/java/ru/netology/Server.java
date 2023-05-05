@@ -14,7 +14,9 @@ import static ru.netology.Calculations.addTotalSumInfo;
 
 public class Server {
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+
+
+
     private static final int PORT = 8080;
 
 
@@ -37,8 +39,9 @@ public class Server {
                     while (!"q".equals(jsonString)) {
                         jsonString = in.readLine();
                         if (!"q".equals(jsonString)){
+                            ObjectMapper objectMapper = new ObjectMapper();
                             BuyNote buyNote = objectMapper.readValue(jsonString, BuyNote.class);
-                            addTotalSumInfo(buyNote);
+                            Calculations.addTotalSumInfo(buyNote);
                         }
                     }
                     JSONObject mainObject = Calculations.getMaxCategoryReturnJsonObject();
