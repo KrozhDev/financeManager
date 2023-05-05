@@ -18,34 +18,26 @@ public class Client {
         {
             String response = in.readLine();
             System.out.println(response);
-
-//            Scanner sc = new Scanner(System.in);
-//            String city = sc.nextLine();
-            out.println("{\"title\": \"булка\", \"date\": \"2022.02.08\", \"sum\": 200}");
-            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 50}");
+            out.println("{\"title\": \"булка\", \"date\": \"2022.02.08\", \"sum\": 400}");
+            out.println("{\"title\": \"булка\", \"date\": \"2022.02.08\", \"sum\": 400}");
+            out.println("{\"title\": \"булка\", \"date\": \"2022.02.08\", \"sum\": 400}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"сухарики\", \"date\": \"2022.02.08\", \"sum\": 150}");
+            out.println("{\"title\": \"пывасичек\", \"date\": \"2022.02.08\", \"sum\": 10000}");
             out.println("{\"title\": \"мыло\", \"date\": \"2022.02.08\", \"sum\": 100}");
-            out.println("{\"title\": \"акции\", \"date\": \"2022.02.08\", \"sum\": 10000}");
+            out.println("{\"title\": \"мыло\", \"date\": \"2022.02.08\", \"sum\": 100}");
+            out.println("{\"title\": \"акции\", \"date\": \"2022.02.08\", \"sum\": 1000}");
+            out.println("{\"title\": \"акции\", \"date\": \"2022.02.08\", \"sum\": 1000}");
+            out.println("{\"title\": \"акции\", \"date\": \"2022.02.08\", \"sum\": 1000}");
             out.println("q");
-
-
             response = in.readLine();
             System.out.println(response);
-            System.out.println(in.readLine());
-//            while (!"q".equals(response)) {
-//                System.out.println(response);
-//                response = in.readLine();
-//            }
-
-
-
-
-
-//
-//            response = in.readLine();
-//            System.out.println(response);
-
-
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);

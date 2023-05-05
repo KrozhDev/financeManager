@@ -4,7 +4,7 @@ public class BuyNote {
 
     private String title = null;
     private String date = null;
-    private int sum = 0;
+    private Integer sum = 0;
 
     public String getTitle() {
         return title;
@@ -26,7 +26,7 @@ public class BuyNote {
         this.date = date;
     }
 
-    public void setSum(int sum) {
+    public void setSum(Integer sum) {
         this.sum = sum;
     }
 
